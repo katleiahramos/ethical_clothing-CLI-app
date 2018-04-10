@@ -16,3 +16,7 @@ How to build a CLI Gem
 2. Start with project structure - GOOGLE IT!
   "how to build a gem" :)
   looks like we'll use bundle gem lorem
+
+
+a brand has
+ price range, location, description, link

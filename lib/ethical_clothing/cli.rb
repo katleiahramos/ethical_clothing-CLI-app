@@ -33,6 +33,9 @@ class EthicalClothing::CLI
     # 1. Alternative Apparel, $
     # 2. Amour Vert, $$
     puts "list of brand names"
+
+    brands = EthicalClothing::Brand.all 
+
     # puts "To return to the main menu, type 'main'"
     # puts "To get more information about a brand, type the number"
     sub_menu
