@@ -3,3 +3,6 @@ require '../lib/ethical_clothing'
 
 #
  EthicalClothing::CLI.new.call
+
+
+testing to seee if the camera is picking this ujp 
