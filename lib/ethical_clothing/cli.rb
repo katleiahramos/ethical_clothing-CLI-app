@@ -10,16 +10,20 @@ class EthicalClothing::CLI
   end
 
   def menu
-    puts "Enter the number for the option you would like"
-    input = gets.strip
-    case input
-    when "1"
-      list_by_name
-    when "2"
-      list_by_price
-    when "3"
-      list_by_country
-    end
+    puts "Enter the number for the option you would like, or type 'exit' to exit."
+    input = gets.strip.downcase
+
+      case input
+        when "1"
+          list_by_name
+        when "2"
+          list_by_price
+        when "3"
+          list_by_country
+        when "exit"
+          puts "Goodbye!"
+        end
+
 
   end
 
@@ -56,16 +60,21 @@ class EthicalClothing::CLI
     puts "To return to the main menu, type 'main'"
     puts "To get more information about a brand, type the number"
     puts "To quit this app, type 'exit' "
-    input = gets.strip
+    input = gets.strip.downcase
 
     case input
       when "main"
         call
       #when input is an integer or a number, valid input, then puts description
       when "exit"
-        #leave program
+        puts "Goddbye!"
       end
 
+
   end
+
+
+
+
 
 end
