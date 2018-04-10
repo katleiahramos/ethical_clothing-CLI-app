@@ -29,17 +29,19 @@ class EthicalClothing::CLI
     # 1. Alternative Apparel, $
     # 2. Amour Vert, $$
     puts "list of brand names"
-    puts "To return to the main menu, type 'main'"
-    puts "To get more information about a brand, type the number"
-
+    # puts "To return to the main menu, type 'main'"
+    # puts "To get more information about a brand, type the number"
+    sub_menu
 
   end
 
   def list_by_price
     #list brands by price range, low to high
     puts "brands listed by price range, low to high"
-    puts "To return to the main menu, type 'main'"
-    puts "To get more information about a brand, type the number"
+
+
+    # puts "To return to the main menu, type 'main'"
+    # puts "To get more information about a brand, type the number"
   end
 
   def list_by_country
@@ -50,13 +52,15 @@ class EthicalClothing::CLI
   end
 
   def sub_menu
+    puts "YOU ARE IN THE SUB MENU"
     puts "To return to the main menu, type 'main'"
     puts "To get more information about a brand, type the number"
     puts "To quit this app, type 'exit' "
     input = gets.strip
+
     case input
       when "main"
-        menu
+        call
       #when input is an integer or a number, valid input, then puts description
       when "exit"
         #leave program
