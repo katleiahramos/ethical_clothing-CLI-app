@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require './lib/ethical_clothing'
+
+
+EthicalClothing::CLI.new.call
