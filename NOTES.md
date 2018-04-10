@@ -11,6 +11,8 @@ How to build a CLI Gem
   program lists brands based on menu
   user can ask for more information, and link to brand
 
+  list by brand,
+
 2. Start with project structure - GOOGLE IT!
   "how to build a gem" :)
   looks like we'll use bundle gem lorem

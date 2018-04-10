@@ -1,8 +1,5 @@
-require_relative "ethical_clothing/version"
-
-module EthicalClothing
-
+require_relative  './ethical_clothing/version.rb'
+require_relative  './ethical_clothing/cli.rb'
 
 
-
-end
+#acts as environment,
