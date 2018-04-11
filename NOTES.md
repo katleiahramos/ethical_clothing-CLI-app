@@ -20,3 +20,11 @@ How to build a CLI Gem
 
 a brand has
  price range, location, description, link
+
+
+ 3.
+ 4.
+ 5.
+
+04.11
+Might want to add a feature that lists brands based on a single price range 

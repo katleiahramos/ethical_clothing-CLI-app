@@ -1,14 +1,16 @@
+require_relative './scraper.rb'
+
 class EthicalClothing::Brand
-  attr_accessor :name
-  attr_reader :price_range, :base
+  attr_accessor :name, :description
+  attr_reader :price_range
 
 
   @@all = []
 
-  def initialize(name, price_range, base)
-    @name = names
+  def initialize(name, price_range)
+    @name = name
     @price_range = price_range
-    @base = base
+    @@all << self
   end
 
 

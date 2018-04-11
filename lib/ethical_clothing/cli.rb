@@ -29,26 +29,10 @@ class EthicalClothing::CLI
 
 
   def list_by_name
-    #list brands by name alphabetically
-    #example
-    # 1. Alternative Apparel, $
-    # 2. Amour Vert, $$
-
-    brand1 = Brand.new
-    brand1.name = "Alternative Apparel"
-    brand1.price_range = "$"
-
-    brand2 = Brand.new
-    brand2.name = "Amour Vert"
-    brand2.price_range = "$$"
 
 
-    puts "list of brand names"
+    EthicalClothing::Scraper.print_brands
 
-
-
-    # puts "To return to the main menu, type 'main'"
-    # puts "To get more information about a brand, type the number"
     sub_menu
 
   end
@@ -70,7 +54,6 @@ class EthicalClothing::CLI
   end
 
   def sub_menu
-    puts "YOU ARE IN THE SUB MENU"
     puts "To return to the main menu, type 'main'"
     puts "To get more information about a brand, type the number"
     puts "To quit this app, type 'exit' "
