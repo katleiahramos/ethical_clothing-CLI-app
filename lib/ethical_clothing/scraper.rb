@@ -8,11 +8,12 @@ class EthicalClothing::Scraper
 
   def self.get_page
     doc = Nokogiri::HTML(open("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion"))
-    binding.pry
+    # binding.pry
   end
 
   def self.get_brands
-    infos = get_page.search("div.sqs-block-content")
+    infos = get_page.search("div.sqs-block.html-block.sqs-block-html")
+    binding.pry
     info_holder = []
     infos.each do |info|
       #binding.pry
