@@ -1,14 +1,19 @@
-require 'nokogiri'
-require 'open-uri'
+# require 'nokogiri'
+# require 'open-uri'
 require_relative './brands.rb'
 require 'pry'
+require 'capybara/poltergeist'
 
 
 class EthicalClothing::Scraper
 
+
+
+
   def self.get_page
-    doc = Nokogiri::HTML(open("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion"))
-    # binding.pry
+    doc = Capybara::Session.new(:poltergeist)
+    doc.visit("http://www.thegoodtrade.com/features/fair-trade-clothing")
+
   end
 
   def self.get_brands
