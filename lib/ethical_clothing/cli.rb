@@ -1,15 +1,14 @@
 class EthicalClothing::CLI
   def call
     puts "Welcome to the Ethical Clothing CLI Appp"
-    puts "List brand by:"
-    puts "1. Brand Name, alphabetically"
-    puts "2. Brand's price range, low to high"
-    puts "3. Brand's base counry"
 
     menu
   end
 
   def menu
+    puts "List brand by:"
+    puts "1. Brand Name, alphabetically"
+    puts "2. Brand's price range, low to high"
     puts "Enter the number for the option you would like, or type 'exit' to exit."
     input = gets.strip.downcase
 
