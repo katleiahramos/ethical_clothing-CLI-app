@@ -29,9 +29,14 @@ a brand has
 04.11
 Might want to add a feature that lists brands based on a single price range
 
-Might want to add a feature that categorizes the brands into types of clothing 
+Might want to add a feature that categorizes the brands into types of clothing
 
 Added create brand to create instances of the brands, initialized with name and price range.
 
 To Do List:
 - get description of each brand and attach them to the instance
+
+04.13
+
+Was able to get the description and now trying to figure out the best way to
+pair the description with the brands. It needs to happen before alphabetizing them. 

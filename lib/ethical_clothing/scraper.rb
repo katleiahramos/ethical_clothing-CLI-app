@@ -27,6 +27,7 @@ class EthicalClothing::Scraper
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
     brand_elements = session.all("h3")
     brand_holder = []
+
     brand_elements.each do |element|
       brand_holder << element.text
       # brand_and_price = element.text.split(": ")
@@ -34,17 +35,17 @@ class EthicalClothing::Scraper
       #brand_holder << info.first("h3").text unless info.first("h3") == nil
     end
     brand_holder.pop
-    brand_holder.sort
-   #  ==>  ["People Tree: $$",
- # "LA Relaxed: $$",
- # "VETTA Capsule: $$-$$$",...]
+    # brand_holder.sort
+    brand_holder
   end
+
 
   def self.get_description
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
     desc_holder = []
     desc_elements = session.all("p")
+
     desc_elements.each do |element|
       desc_holder << element.text
     end
@@ -52,13 +53,32 @@ class EthicalClothing::Scraper
       desc_holder.shift
     end
     desc_holder
+
   end
+
+
 
   def self.create_brands
     brands = self.get_brands
     brands.each do |brand_with_price|
       elements = brand_with_price.split(": ")
       brand = EthicalClothing::Brand.new(elements[0], elements[1])
+    end
+    nil
+  end
+
+  def self.match
+    descs = self.get_description
+    brands = EthicalClothing::Brand.all
+    #lets figure out how to make this a for loop 
+    i = 0
+    brands.each do |brand|
+      j = 0
+      descs.each do |desc|
+        brand.description = desc if i == j
+        j += 1
+      end
+      i += 1
     end
     nil
   end
