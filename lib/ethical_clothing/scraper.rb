@@ -34,6 +34,13 @@ class EthicalClothing::Scraper
       #brand_holder << info.first("h3").text unless info.first("h3") == nil
     end
 
+    def self.get_description
+      session = Capybara::Session.new(:poltergeist)
+      session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
+      binding.pry
+      dsc_elements = session.all("p")
+    end
+
     brand_holder.pop
     brand_holder.sort
    #  ==>  ["People Tree: $$",
@@ -41,7 +48,7 @@ class EthicalClothing::Scraper
  # "VETTA Capsule: $$-$$$",...]
   end
 
-  def self.create_brand
+  def self.create_brands
     brands = self.get_brands
     brands.each do |brand_with_price|
       elements = brand_with_price.split(": ")
@@ -60,8 +67,7 @@ class EthicalClothing::Scraper
     nil
   end
 
-  def self.get_description
-  end
+
 
   def brands
   #  @@brands
