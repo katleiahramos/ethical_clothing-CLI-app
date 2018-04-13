@@ -19,7 +19,6 @@ class EthicalClothing::Scraper
   def self.get_page
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://www.thegoodtrade.com/features/fair-trade-clothing")
-
   end
 
   def self.get_brands
@@ -34,8 +33,9 @@ class EthicalClothing::Scraper
       # brand = EthicalClothing::Brand.new(brand_and_price[0], brand_and_price[1])
       #brand_holder << info.first("h3").text unless info.first("h3") == nil
     end
-    brand_holder.pop
-    # brand_holder.sort
+    2.times do
+      brand_holder.pop
+    end
     brand_holder
   end
 
@@ -70,7 +70,7 @@ class EthicalClothing::Scraper
   def self.match
     descs = self.get_description
     brands = EthicalClothing::Brand.all
-    #lets figure out how to make this a for loop 
+    #lets figure out how to make this a for loop
     i = 0
     brands.each do |brand|
       j = 0
@@ -86,7 +86,7 @@ class EthicalClothing::Scraper
 
 
   def self.print_brands
-    brands = self.get_brands
+    brands = self.get_brands.sort
     brands.each_with_index do |brand, index|
       puts "#{index + 1}. #{brand}"
     end
