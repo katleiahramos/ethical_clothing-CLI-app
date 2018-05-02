@@ -46,12 +46,14 @@ class EthicalClothing::Scraper
     desc_elements = session.all("p")
 
     desc_elements.each do |element|
-      desc_holder << element.text
+      desc_holder << element.text unless element.text == ""
     end
+
     3.times do
       desc_holder.shift
     end
     desc_holder
+
 
   end
 
