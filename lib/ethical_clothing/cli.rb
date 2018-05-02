@@ -29,9 +29,10 @@ class EthicalClothing::CLI
 
 
   def list_by_name
-
-
-    EthicalClothing::Scraper.print_brands
+    EthicalClothing::Brand.all.each_with_index do |brand, index|
+      puts "#{index + 1}. #{brand.name}"
+    end
+    #EthicalClothing::Scraper.print_brands
 
     sub_menu
 
@@ -59,13 +60,25 @@ class EthicalClothing::CLI
     puts "To quit this app, type 'exit' "
     input = gets.strip.downcase
 
-    case input
-      when "main"
-        call
-      #when input is an integer or a number, valid input, then puts description
-      when "exit"
-        puts "Goddbye!"
-      end
+    
+    puts "#{brand.name}"
+    puts "--------Description--------"
+    puts brand.description
+    #   puts "We're in!"
+    # else
+    #   puts "Not working"
+    # # case input
+    # #   when "main"
+    # #     call
+    # #   #when input is an integer or a number, valid input, then puts description
+    # #   when input.to_i > 0 && EthicalClothing::Brand.all[input.to_i - 1]
+    # #     binding.pry
+    # #     brand_details = EthicalClothing::Brand.all[input.to_i - 1]
+    # #     brand_details.description
+    # #   when "exit"
+    # #     puts "Goddbye!"
+    # #   end
+    # end
 
 
   end

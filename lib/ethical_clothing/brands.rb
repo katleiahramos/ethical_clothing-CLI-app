@@ -10,7 +10,7 @@ class EthicalClothing::Brand
   def initialize(name, price_range)
     @name = name
     @price_range = price_range
-    @@all << self
+    self.save
   end
 
 

@@ -7,18 +7,13 @@ require 'capybara/poltergeist'
 
 class EthicalClothing::Scraper
 
-  # def self.testing
-  #   session = Capybara::Session.new(:poltergeist)
-  #   session.visit('http://stackoverflow.com/')
-  #
-  #   puts session.document.title
-  # end
 
-
-
+  #get page to scrape from
   def self.get_page
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://www.thegoodtrade.com/features/fair-trade-clothing")
+    #brand_info = session.all('.sqs-block.html-block.sqs-block-html')
+    #brand_info[3].first('p').text
   end
 
   def self.get_brands
@@ -70,6 +65,7 @@ class EthicalClothing::Scraper
   def self.match
     descs = self.get_description
     brands = EthicalClothing::Brand.all
+
     #lets figure out how to make this a for loop
     i = 0
     brands.each do |brand|

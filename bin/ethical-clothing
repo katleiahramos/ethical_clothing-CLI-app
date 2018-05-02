@@ -2,4 +2,6 @@
 require '../lib/ethical_clothing'
 
 #
- EthicalClothing::CLI.new.call
+EthicalClothing::Scraper.create_brands
+EthicalClothing::Scraper.match
+EthicalClothing::CLI.new.call
