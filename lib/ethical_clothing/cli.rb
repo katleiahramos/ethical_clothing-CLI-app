@@ -27,6 +27,7 @@ class EthicalClothing::CLI
        puts ""
        input = gets.strip.downcase.gsub("'", "")
 
+       #checks for valid input (integer that exists as an index in array of all brands)
        if input.to_i > 0 && EthicalClothing::Brand.all[input.to_i - 1 ]
         brands_sorted = EthicalClothing::Brand.all.sort_by {|brand| brand.name}
         brand = brands_sorted[input.to_i - 1]
