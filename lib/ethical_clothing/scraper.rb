@@ -27,7 +27,7 @@ class EthicalClothing::Scraper
       if element.text.include?(':')
         info = element.text.split(':')
         name = info[0]
-        price = info[1]
+        price = info[1] 
         url = element.first('a')['href']
         brand = EthicalClothing::Brand.new(name, price, url)
       else
@@ -46,7 +46,11 @@ class EthicalClothing::Scraper
     desc_elements = session.all("p")
 
     desc_elements.each do |element|
-      desc_holder << element.text unless element.text == ""
+      if element.text == ""
+        element = "Not Available"
+      else
+      desc_holder << element.text
+      end
     end
 
     3.times do

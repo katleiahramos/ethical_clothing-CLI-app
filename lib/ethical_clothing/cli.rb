@@ -15,8 +15,6 @@ class EthicalClothing::CLI
     brands_sorted.each_with_index do |brand, index|
       puts "#{index + 1}. #{brand.name}"
     end
-    #EthicalClothing::Scraper.print_brands
-
     puts ""
   end
 
@@ -42,11 +40,6 @@ class EthicalClothing::CLI
         puts "Webiste | #{brand.url} "
         puts ""
         puts ""
-
-        # puts "To see list of brands, type 'list' "
-        # puts "To quit this app, type 'exit' "
-        # input = gets.strip.downcase
-
       elsif input == 'list'
         list_brands
       elsif input == 'exit'
