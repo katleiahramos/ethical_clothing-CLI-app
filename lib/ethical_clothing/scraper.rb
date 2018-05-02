@@ -1,5 +1,4 @@
-# require 'nokogiri'
-# require 'open-uri'
+
 require_relative './brands.rb'
 require 'pry'
 require 'capybara/poltergeist'
@@ -7,14 +6,6 @@ require 'capybara/poltergeist'
 
 class EthicalClothing::Scraper
 
-
-  #get page to scrape from
-  def self.get_page
-    session = Capybara::Session.new(:poltergeist)
-    session.visit("http://www.thegoodtrade.com/features/fair-trade-clothing")
-    #brand_info = session.all('.sqs-block.html-block.sqs-block-html')
-    #brand_info[3].first('p').text
-  end
 
   def self.get_and_create_brands
     session = Capybara::Session.new(:poltergeist)
@@ -27,7 +18,7 @@ class EthicalClothing::Scraper
       if element.text.include?(':')
         info = element.text.split(':')
         name = info[0]
-        price = info[1] 
+        price = info[1]
         url = element.first('a')['href']
         brand = EthicalClothing::Brand.new(name, price, url)
       else
@@ -76,7 +67,6 @@ class EthicalClothing::Scraper
     descs = self.get_description
     brands = EthicalClothing::Brand.all
 
-    #lets figure out how to make this a for loop
     i = 0
     brands.each do |brand|
       j = 0

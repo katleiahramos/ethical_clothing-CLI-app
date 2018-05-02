@@ -24,20 +24,5 @@ class EthicalClothing::Brand
     @@all << self
   end
 
-  def price_range=(price_range)
-    #we want to create a belongs to through relationship
-  end
-
-  def base=(base)
-    #we want to create a belongs to through relationship
-  end
-
-
-
-
-
-
-
-
 
 end
