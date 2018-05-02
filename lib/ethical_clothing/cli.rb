@@ -60,10 +60,10 @@ class EthicalClothing::CLI
     puts "To quit this app, type 'exit' "
     input = gets.strip.downcase
 
-    
-    puts "#{brand.name}"
-    puts "--------Description--------"
+    brand = EthicalClothing::Brand.all[input.to_i - 1]
+    puts "--------#{brand.name}--------"
     puts brand.description
+    puts '______________________________'
     #   puts "We're in!"
     # else
     #   puts "Not working"
