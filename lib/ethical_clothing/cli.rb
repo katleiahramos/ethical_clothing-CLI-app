@@ -29,12 +29,22 @@ class EthicalClothing::CLI
 
 
   def list_by_name
-    EthicalClothing::Brand.all.each_with_index do |brand, index|
+    brands_sorted = EthicalClothing::Brand.all.sort_by {|brand| brand.name}
+
+    brands_sorted.each_with_index do |brand, index|
       puts "#{index + 1}. #{brand.name}"
     end
     #EthicalClothing::Scraper.print_brands
 
-    sub_menu
+    puts "To return to the main menu, type 'main'"
+    puts "To get more information about a brand, type the number"
+    puts "To quit this app, type 'exit' "
+    input = gets.strip.downcase
+
+    brand = brands_sorted[input.to_i - 1]
+    puts "--------#{brand.name}--------"
+    puts brand.description
+    puts '______________________________'
 
   end
 

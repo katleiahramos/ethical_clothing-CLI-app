@@ -35,7 +35,7 @@ class EthicalClothing::Scraper
       end
 
     end
-
+    nil
   end
 
 
