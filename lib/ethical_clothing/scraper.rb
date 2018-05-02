@@ -16,22 +16,26 @@ class EthicalClothing::Scraper
     #brand_info[3].first('p').text
   end
 
-  def self.get_brands
+  def self.get_and_create_brands
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
     brand_elements = session.all("h3")
     brand_holder = []
 
     brand_elements.each do |element|
-      brand_holder << element.text
-      # brand_and_price = element.text.split(": ")
-      # brand = EthicalClothing::Brand.new(brand_and_price[0], brand_and_price[1])
-      #brand_holder << info.first("h3").text unless info.first("h3") == nil
+      #grab brand name, price, and url
+      if element.text.include?(':')
+        info = element.text.split(':')
+        name = info[0]
+        price = info[1]
+        url = element.first('a')['href']
+        brand = EthicalClothing::Brand.new(name, price, url)
+      else
+        nil
+      end
+
     end
-    2.times do
-      brand_holder.pop
-    end
-    brand_holder
+
   end
 
 
