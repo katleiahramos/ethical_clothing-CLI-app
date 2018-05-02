@@ -6,15 +6,15 @@ require 'capybara/poltergeist'
 
 class EthicalClothing::Scraper
 
-
+  #scrape page and instantiate brands
   def self.get_and_create_brands
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
     brand_elements = session.all("h3")
-    brand_holder = []
 
     brand_elements.each do |element|
       #grab brand name, price, and url
+      #Skip any element that is not a brand
       if element.text.include?(':')
         info = element.text.split(':')
         name = info[0]
@@ -24,12 +24,11 @@ class EthicalClothing::Scraper
       else
         nil
       end
-
     end
     nil
   end
 
-
+  #scrape website for description
   def self.get_description
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
@@ -44,6 +43,7 @@ class EthicalClothing::Scraper
       end
     end
 
+    #get rid of extra elements that are not descriptions
     3.times do
       desc_holder.shift
     end
@@ -52,21 +52,12 @@ class EthicalClothing::Scraper
 
   end
 
-
-
-  def self.create_brands
-    brands = self.get_brands
-    brands.each do |brand_with_price|
-      elements = brand_with_price.split(": ")
-      brand = EthicalClothing::Brand.new(elements[0], elements[1])
-    end
-    nil
-  end
-
+  #Add description as attribute to  to brand instance
   def self.match
     descs = self.get_description
     brands = EthicalClothing::Brand.all
 
+    #iterate through brands and descriptions and match them based on index
     i = 0
     brands.each do |brand|
       j = 0
@@ -78,25 +69,5 @@ class EthicalClothing::Scraper
     end
     nil
   end
-
-
-
-  def self.print_brands
-    brands = self.get_brands.sort
-    brands.each_with_index do |brand, index|
-      puts "#{index + 1}. #{brand}"
-    end
-    nil
-  end
-
-
-
-  def brands
-  #  @@brands
-  end
-
-
-
-
 
 end
