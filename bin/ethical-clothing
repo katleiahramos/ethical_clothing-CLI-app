@@ -2,6 +2,9 @@
 require '../lib/ethical_clothing'
 
 #
+puts "---------Welcome to the Ethical Clothing ClI App-----------"
+puts "....we are collecting your brands..."
 EthicalClothing::Scraper.get_and_create_brands
+puts ".....one moment please....."
 EthicalClothing::Scraper.match
 EthicalClothing::CLI.new.call

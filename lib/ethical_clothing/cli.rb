@@ -2,7 +2,7 @@ class EthicalClothing::CLI
   def call
     puts "Welcome to the Ethical Clothing CLI Appp"
 
-    menu
+    list_by_name
   end
 
   def menu
@@ -42,27 +42,29 @@ class EthicalClothing::CLI
     input = gets.strip.downcase
 
     brand = brands_sorted[input.to_i - 1]
-    puts "--------#{brand.name}--------"
+    puts "-------- BRAND --------"
+    puts brand.name
+    puts "------PRICE RANGE ------"
+    puts brand.price_range
+    puts '------ DESCRIPTION ------'
     puts brand.description
-    puts '______________________________'
+    puts '-------- Webiste ------------'
+    puts brand.url
+    puts '-----------------------------'
 
-  end
-
-  def list_by_price
-    #list brands by price range, low to high
-    puts "brands listed by price range, low to high"
-
-
-    # puts "To return to the main menu, type 'main'"
-    # puts "To get more information about a brand, type the number"
-  end
-
-  def list_by_country
-    #list brands by country they are based in
-    puts "list of brands by counry they are based in, alphabetical"
     puts "To return to the main menu, type 'main'"
-    puts "To get more information about a brand, type the number"
+    puts "To quit this app, type 'exit' "
+    input = gets.strip.downcase
+
+    case input
+      when "main"
+           call
+      when "exit"
+        puts "Goodbye!"
+      end
+
   end
+
 
   def sub_menu
     puts "To return to the main menu, type 'main'"
