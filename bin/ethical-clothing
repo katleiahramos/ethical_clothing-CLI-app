@@ -7,11 +7,14 @@ puts "A few things to note: "
 puts ""
 puts "Ethical fashion (or slow fashion or sustainable fashion) simply means that the retailer is transparent about where they're sourcing their clothes, that they pay fairly, and use materials that are organic, un-harmful, or recycled when possible. "
 puts ""
-puts ""
-puts "Keep in mind that clothes made like this takes more money and time to create,so naturally it will cost more. I don't think the goal of this list should be to find retailers that will allow us to keep 'consuming' as quickly as possible just because we can afford to do so. Conversely, I think it should encourage us to purchase when we can or need to, but with as much thought as if we were buying a $300 pair of jeans. "
-EthicalClothing::Scraper.get_and_create_brands
-puts ""
 puts "....one moment, we are collecting your brands..."
 puts ""
+EthicalClothing::Scraper.get_and_create_brands
+puts ""
+puts ".........."
+puts ""
+puts "....."
+puts ""
 EthicalClothing::Scraper.match
+
 EthicalClothing::CLI.new.call

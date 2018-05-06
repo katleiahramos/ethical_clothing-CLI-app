@@ -20,7 +20,9 @@ class EthicalClothing::Scraper
         name = info[0]
         price = info[1]
         url = element.first('a')['href']
+
         brand = EthicalClothing::Brand.new(name, price, url)
+
       else
         nil
       end
@@ -67,7 +69,8 @@ class EthicalClothing::Scraper
       end
       i += 1
     end
-    nil
+    #Get rid of second "Bamboo Body that appears twice on website list"
+    EthicalClothing::Brand.all.delete_at(39)
   end
 
 end
