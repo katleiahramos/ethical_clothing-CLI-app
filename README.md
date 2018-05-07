@@ -1,6 +1,6 @@
 # EthicalClothing
 
-This [Ruby Gem](https://rubygems.org/gems/ethical_clothing/) provides a CLI to view a list of ethical clothing brands and get the brand's information. 
+This [Ruby Gem](https://rubygems.org/gems/ethical_clothing/) provides a CLI to view a list of ethical clothing brands and get the brand's information.
 
 ## Installation
 
@@ -17,6 +17,11 @@ And then execute:
 Or install it yourself as:
 
     $ gem install ethical_clothing
+
+If you are using this gem on a MAC, install Phantom JS using the instructions below:
+
+- Homebrew: $ brew install phantomjs
+- MacPorts: $sudo port install phantomjs
 
 ## Usage
 
