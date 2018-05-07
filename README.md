@@ -20,8 +20,8 @@ Or install it yourself as:
 
 If you are using this gem on a MAC, install Phantom JS using the instructions below:
 
-- Homebrew: $ brew install phantomjs
-- MacPorts: $sudo port install phantomjs
+- Homebrew: ```$ brew install phantomjs```
+- MacPorts: ```$sudo port install phantomjs```
 
 ## Usage
 
