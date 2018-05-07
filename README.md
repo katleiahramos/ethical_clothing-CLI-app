@@ -1,6 +1,6 @@
 # EthicalClothing
 
-This [Ruby Gem] (https://rubygems.org/gems/ethical_clothing) provides a CLI to view a list of ethical clothing brands and get the brand's information. 
+This [Ruby Gem](https://rubygems.org/gems/ethical_clothing/) provides a CLI to view a list of ethical clothing brands and get the brand's information. 
 
 ## Installation
 
