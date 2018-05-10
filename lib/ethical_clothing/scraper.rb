@@ -34,22 +34,13 @@ class EthicalClothing::Scraper
   def self.get_description
     session = Capybara::Session.new(:poltergeist)
     session.visit("http://simplylivandco.com/blog/best-places-to-buy-affordable-ethical-fashion")
-    desc_holder = []
+    # desc_holder = []
     desc_elements = session.all("p")
 
-    desc_elements.each do |element|
-      if element.text == ""
-        element = "Not Available"
-      else
-      desc_holder << element.text
-      end
-    end
+    desc_elements.collect do |element|
+      element.text
+    end[3..-1]
 
-    #get rid of extra elements that are not descriptions
-    3.times do
-      desc_holder.shift
-    end
-    desc_holder
 
 
   end

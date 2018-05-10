@@ -1,7 +1,26 @@
 class EthicalClothing::CLI
   def call
+    welcome_and_scrape
     list_brands
     menu
+  end
+
+  def welcome_and_scrape
+    #
+    puts "---------Welcome to the Ethical Clothing ClI App-----------"
+    puts "A few things to note: "
+    puts ""
+    puts "Ethical fashion (or slow fashion or sustainable fashion) simply means that the retailer is transparent about where they're sourcing their clothes, that they pay fairly, and use materials that are organic, un-harmful, or recycled when possible. "
+    puts ""
+    puts "....one moment, we are collecting your brands..."
+    puts ""
+    EthicalClothing::Scraper.get_and_create_brands
+    puts ""
+    puts ".........."
+    puts ""
+    puts "....."
+    puts ""
+    EthicalClothing::Scraper.match
   end
 
 
